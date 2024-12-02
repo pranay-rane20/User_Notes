@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-100 min-h-screen">
+<nav class="bg-gray-900 p-6 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-white text-2xl font-bold tracking-tight">Notes Pro</a>
+        <ul class="flex space-x-6">
+            <li><a href="/" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Home</a></li>
+            <li><a href="/new" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">New Note</a></li>
+            <li><a href="/about" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-8 text-gray-800 text-center">Your Notes</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+        <% file.forEach((files)=>{  %>
+            <div class="relative bg-white shadow-lg rounded-lg overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl">
+                <div class="relative bg-white m-0.5 rounded-lg">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-4">
+                        <h2 class="text-2xl font-bold text-white font-serif">Note</h2>
+                    </div>
+                    <div class="p-6 bg-gradient-to-b from-gray-50 to-white">
+                        <div class="mb-4">
+                            <p id="noteName1" class="text-gray-800 font-semibold text-xl font-sans"><%= files.name %></p>
+                        </div>
+                        <div class="mb-4 flex justify-between items-center">
+                            <a href="/view/<%= files.name %>" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">View Note</a>
+                            <a href="/edit/<%= files.name %>" class="text-green-600 hover:text-green-800 transition duration-300 ease-in-out">Edit</a>
+                            <a href="/delete/<%= files.name %>" class="text-red-600 hover:text-red-800 transition duration-300 ease-in-out">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+         <% }) %>
+
+
+      
+    </div>
+</div>
+</body>
+</html>
